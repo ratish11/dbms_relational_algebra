@@ -11,6 +11,7 @@ import java.util.function.*;
 import java.util.stream.*;
 
 import static java.lang.Boolean.*;
+import static java.lang.System.in;
 import static java.lang.System.out;
 
 /****************************************************************************************
@@ -242,8 +243,25 @@ public class Table
         if (! compatible (table2)) return null;
 
         List <Comparable []> rows = new ArrayList <> ();
-
-        //  T O   B E   I M P L E M E N T E D 
+        /*********************************************************************************
+         * @author Ratish Jha
+         */
+        //  T O   B E   I M P L E M E N T E D
+        rows.addAll(tuples);
+        for(int i = 0 ; i< table2.tuples.size(); i++){
+            boolean ignore = false;
+            for(int j = 0; j < tuples.size(); j++){
+                if(Arrays.deepEquals(tuples.get(j), table2.tuples.get(i))){
+//                    out.println(table2.tuples.get(i) + "  " + tuples.get(j));
+//                    rows.add(table2.tuples.get(i));
+                    ignore = true;
+                    break;
+                }
+            }
+            if(!ignore){
+                rows.add(table2.tuples.get(i));
+            }
+        }
 
         return new Table (name + count++, attribute, domain, key, rows);
     } // union
@@ -264,7 +282,22 @@ public class Table
 
         List <Comparable []> rows = new ArrayList <> ();
 
-        //  T O   B E   I M P L E M E N T E D 
+        //  T O   B E   I M P L E M E N T E D
+        /*********************************************************************************
+         * @author Ratish Jha
+         */
+        for(int i = 0 ; i< tuples.size(); i++){
+            boolean exists = false;
+            for(int j = 0; j < table2.tuples.size(); j++){
+                if(Arrays.deepEquals(tuples.get(i), table2.tuples.get(j))){
+                    exists = true;
+                    break;
+                }
+            }
+            if(!exists){
+                rows.add(tuples.get(i));
+            }
+        }
 
         return new Table (name + count++, attribute, domain, key, rows);
     } // minus
@@ -291,8 +324,24 @@ public class Table
 
         List <Comparable []> rows = new ArrayList <> ();
 
-        //  T O   B E   I M P L E M E N T E D 
-
+        //  T O   B E   I M P L E M E N T E D
+        out.println("here");
+        int[] t_col = match(t_attrs);
+        int[] u_col = table2.match(u_attrs);
+        for(int i = 0 ; i < tuples.size(); i++){
+            for(int j = 0; j < table2.tuples.size(); j++){
+                boolean equalized = true;
+                for(int k = 0; k < t_col.length; k++){
+                    if(!tuples.get(i)[t_col[k]].equals(table2.tuples.get(j)[u_col[k]])){
+                        equalized = false;
+                        break;
+                    }
+                }
+                if(equalized){
+                    rows.add(ArrayUtil.concat(tuples.get(i),table2.tuples.get(j)));
+                }
+            }
+        }
         return new Table (name + count++, ArrayUtil.concat (attribute, table2.attribute),
                                           ArrayUtil.concat (domain, table2.domain), key, rows);
     } // join
@@ -313,7 +362,8 @@ public class Table
 
         List <Comparable []> rows = new ArrayList <> ();
 
-        //  T O   B E   I M P L E M E N T E D 
+        //  T O   B E   I M P L E M E N T E D
+
 
         // FIX - eliminate duplicate columns
         return new Table (name + count++, ArrayUtil.concat (attribute, table2.attribute),
