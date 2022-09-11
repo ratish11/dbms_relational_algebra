@@ -144,7 +144,7 @@ public class Table
 
         //  T O   B E   I M P L E M E N T E D
         /*********************************************************************************
-         * @author Ratish Jha
+         * @author Boby John Loganathan
          */
         for(int i = 0; i < tuples.size(); i++){
             Comparable[] tuple = extract(tuples.get(i), attrs);
@@ -203,7 +203,7 @@ public class Table
 
         //  T O   B E   I M P L E M E N T E D 
         /*********************************************************************************
-         * @author Ratish Jha
+         * @author Boby John Loganathan
          */
         
         for (Map.Entry <KeyType, Comparable []> e : index.entrySet ()) {
@@ -311,7 +311,7 @@ public class Table
         List <Comparable []> rows = new ArrayList <> ();
         //  T O   B E   I M P L E M E N T E D
         /*********************************************************************************
-         * @author Ratish Jha, Soumya Bharadwaj, Boby John Loganathan
+         * @author Soumya Bharadwaj, Ratish Jha, Boby John Loganathan
          */
         int[] t_col = match(t_attrs);
         int[] u_col = table2.match(u_attrs);
