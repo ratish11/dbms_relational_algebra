@@ -117,7 +117,7 @@ class MovieDB
         //--------------------- indexed select: key
 
         out.println ();
-        Table t_iselect = movieStar.select (new KeyType ("Harrison_Ford"));
+        Table t_iselect = movieStar.select (new KeyType ("Carrie_Fisher"));
         t_iselect.print ();
 
         //--------------------- union: movie UNION cinema

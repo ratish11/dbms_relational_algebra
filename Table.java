@@ -147,22 +147,7 @@ public class Table
          * @author Ratish Jha
          */
         for(int i = 0; i < tuples.size(); i++){
-            int eq_cnt = 0;
-            Comparable[] tuple = this.extract(tuples.get(i), attrs);
-            for(int j = 0; j < tuple.length; j++){
-                Comparable[] lasttup = tuples.get(j);
-                boolean eqr = true;
-                for(int k = 0; k<tuple.length; k++){
-                    if (!lasttup[k].equals(tuple[k])){
-                        eqr = false;
-                        break;
-                    }
-                }
-                if(eqr){
-                    eq_cnt++;
-                    break;
-                }
-            }
+            Comparable[] tuple = extract(tuples.get(i), attrs);
             rows.add(tuple);
 
         }
@@ -220,9 +205,10 @@ public class Table
         /*********************************************************************************
          * @author Ratish Jha
          */
+        
         for (Map.Entry <KeyType, Comparable []> e : index.entrySet ()) {
             if(e.getKey().compareTo(keyVal) == 0) {
-                out.println (e.getKey () + " -> " + Arrays.toString (e.getValue ()));
+//                out.println (e.getKey () + " -> " + Arrays.toString (e.getValue ()));
                 rows.add(e.getValue());
             }
         }
@@ -284,7 +270,7 @@ public class Table
 
         //  T O   B E   I M P L E M E N T E D
         /*********************************************************************************
-         * @author Ratish Jha
+         * @author Soumya Bharadwaj
          */
         for(int i = 0 ; i< tuples.size(); i++){
             boolean exists = false;
@@ -323,9 +309,10 @@ public class Table
         String [] u_attrs = attributes2.split (" ");
 
         List <Comparable []> rows = new ArrayList <> ();
-
         //  T O   B E   I M P L E M E N T E D
-        out.println("here");
+        /*********************************************************************************
+         * @author Ratish Jha, Soumya Bharadwaj, Boby John Loganathan
+         */
         int[] t_col = match(t_attrs);
         int[] u_col = table2.match(u_attrs);
         for(int i = 0 ; i < tuples.size(); i++){
@@ -359,15 +346,72 @@ public class Table
     public Table join (Table table2)
     {
         out.println ("RA> " + name + ".join (" + table2.name + ")");
+        
 
         List <Comparable []> rows = new ArrayList <> ();
-
+        
+        /*********************************************************************************
+         * @author Ratish Jha, Boby John Loganathan, Soumya Bharadwaj
+         */
         //  T O   B E   I M P L E M E N T E D
+        ArrayList<String> joinattr = new ArrayList<String>();
+        joinattr.addAll(Arrays.asList(attribute));
+        joinattr.retainAll(Arrays.asList(table2.attribute));
+        
+        String [] joinattr_array = new String[joinattr.size()];
+        joinattr.toArray(joinattr_array);
+        int[] cols1 = match(joinattr_array);
+    	//for(int i : cols1) System.out.println(i);
+        int[] cols2 = table2.match(joinattr_array);
+        
+        List<Integer> uncommon_cols2 = new ArrayList<Integer>();
+        
+        for (int i = 0; i < table2.attribute.length; i++) uncommon_cols2.add(i);
+        for (int i = cols2.length-1; i >= 0; i--) uncommon_cols2.remove(cols2[i]);
+        
+        String [] out_schema = new String[attribute.length + uncommon_cols2.size()];
+        Class [] out_schema_type = new Class[domain.length + uncommon_cols2.size()];
+        
+        for (int m=0; m < attribute.length; m++) {
+        	out_schema[m] = attribute[m];
+        	out_schema_type[m] = domain[m];
+        }
+        for (int l=0; l < uncommon_cols2.size(); l++) {
+        	out_schema[l + attribute.length] = table2.attribute[uncommon_cols2.get(l)];
+        	out.println(uncommon_cols2.get(l));
+        	out_schema_type[l + attribute.length] = table2.domain[uncommon_cols2.get(l)];
+        }
+        
+        for (int t1 = 0; t1 < tuples.size(); t1++) {
+            Comparable[] row1 = tuples.get(t1);
+            for (int t2 = 0; t2 < table2.tuples.size(); ++t2) {
+                Comparable[] row2 = table2.tuples.get(t2);
+                boolean valMatch = true;
+                for (int c = 0; c < joinattr.size(); c++) {
+                    Comparable val1 = row1[cols1[c]];
+                    Comparable val2 = row2[cols2[c]];
+                    if (!val1.equals(val2)) {
+                    	valMatch = false;
+                        break;
+                    }
+                }
 
-
+                if (valMatch) {
+                    Comparable[] joinedrow = new Comparable[row1.length + uncommon_cols2.size()];
+                    for (int c1 = 0; c1 < row1.length; c1++) {
+                    	joinedrow[c1] = row1[c1];
+                    }
+                    for (int c2 = 0; c2 < uncommon_cols2.size(); c2++) {
+                    	joinedrow[row1.length + c2] = row2[uncommon_cols2.get(c2)];
+                    }
+                    rows.add(joinedrow);
+                }
+            }
+        }
+        
         // FIX - eliminate duplicate columns
-        return new Table (name + count++, ArrayUtil.concat (attribute, table2.attribute),
-                                          ArrayUtil.concat (domain, table2.domain), key, rows);
+        return new Table(name + count++, out_schema, out_schema_type, key, rows);
+//        return new Table (name + count++, ArrayUtil.concat (attribute, table2.attribute), ArrayUtil.concat (domain, table2.domain), key, rows);
     } // join
 
     /************************************************************************************
