@@ -1,9 +1,12 @@
-# dbms_relational_algebra
+# DataBase Management
 
 This project will have implemented following Relational Algebra operators:
 - Project
 - Select(with TreeMap)
 - Union
-- minus
+- Minus
 - Equi\-Join
 - Natural Join
+
+## Software Requirements:
+- **Java 11 JDK**
