@@ -5,5 +5,5 @@ This project will have implemented following Relational Algebra operators:
 - Select(with TreeMap)
 - Union
 - minus
--Equi-Join
--Natural Join
+- Equi\-Join
+- Natural Join
