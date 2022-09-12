@@ -18,6 +18,14 @@ This project will implement the following Relational Algebra operators:
 - go to the root folder of the project.
 - run the following commands: `make`
 
+## How to compile and run:
+- go to the root folder of the project.
+- execute following command: 
+`javac -g MovieDB.java`
+- execute following command: 
+`java MovieDB`
+
+
 
 ### Contributors:
 - Ratish Jha(@ratish11)
