@@ -147,7 +147,7 @@ public class Table
          * @author Boby John Loganathan
          */
         for(int i = 0; i < tuples.size(); i++){
-            Comparable[] tuple = extract(tuples.get(i), attrs);
+            Comparable[] tuple = extract(tuples.get(i), attrs); //iterate over tuples, extract each tuple in the attribute column
             rows.add(tuple);
 
         }
@@ -206,7 +206,7 @@ public class Table
          * @author Boby John Loganathan
          */
         
-        for (Map.Entry <KeyType, Comparable []> e : index.entrySet ()) {
+        for (Map.Entry <KeyType, Comparable []> e : index.entrySet ()) {  //iterate over TreeMap object named index and conpare each key to keyVal
             if(e.getKey().compareTo(keyVal) == 0) {
 //                out.println (e.getKey () + " -> " + Arrays.toString (e.getValue ()));
                 rows.add(e.getValue());
@@ -237,7 +237,7 @@ public class Table
         for(int i = 0 ; i< table2.tuples.size(); i++){
             boolean ignore = false;
             for(int j = 0; j < tuples.size(); j++){
-                if(Arrays.deepEquals(tuples.get(j), table2.tuples.get(i))){
+                if(Arrays.deepEquals(tuples.get(j), table2.tuples.get(i))){ //compare entire row's elements in first table with the second one
 //                    out.println(table2.tuples.get(i) + "  " + tuples.get(j));
 //                    rows.add(table2.tuples.get(i));
                     ignore = true;
@@ -275,7 +275,7 @@ public class Table
         for(int i = 0 ; i< tuples.size(); i++){
             boolean exists = false;
             for(int j = 0; j < table2.tuples.size(); j++){
-                if(Arrays.deepEquals(tuples.get(i), table2.tuples.get(j))){
+                if(Arrays.deepEquals(tuples.get(i), table2.tuples.get(j))){ //compare entire row's elements in first table with the second one
                     exists = true;
                     break;
                 }
@@ -319,13 +319,13 @@ public class Table
             for(int j = 0; j < table2.tuples.size(); j++){
                 boolean equalized = true;
                 for(int k = 0; k < t_col.length; k++){
-                    if(!tuples.get(i)[t_col[k]].equals(table2.tuples.get(j)[u_col[k]])){
+                    if(!tuples.get(i)[t_col[k]].equals(table2.tuples.get(j)[u_col[k]])){ // check if row's element corresponding to join attribute matches
                         equalized = false;
                         break;
                     }
                 }
                 if(equalized){
-                    rows.add(ArrayUtil.concat(tuples.get(i),table2.tuples.get(j)));
+                    rows.add(ArrayUtil.concat(tuples.get(i),table2.tuples.get(j))); //concatenate and add row if the above match is successfull
                 }
             }
         }
@@ -356,29 +356,29 @@ public class Table
         //  T O   B E   I M P L E M E N T E D
         ArrayList<String> joinattr = new ArrayList<String>();
         joinattr.addAll(Arrays.asList(attribute));
-        joinattr.retainAll(Arrays.asList(table2.attribute));
+        joinattr.retainAll(Arrays.asList(table2.attribute)); //remove attributes which are not common in both tables 
         
         String [] joinattr_array = new String[joinattr.size()];
         joinattr.toArray(joinattr_array);
-        int[] cols1 = match(joinattr_array);
+        int[] cols1 = match(joinattr_array); //get index no of common attributes for first table
     	//for(int i : cols1) System.out.println(i);
-        int[] cols2 = table2.match(joinattr_array);
+        int[] cols2 = table2.match(joinattr_array); //get index no of common attributes for first table
         
         List<Integer> uncommon_cols2 = new ArrayList<Integer>();
         
         for (int i = 0; i < table2.attribute.length; i++) uncommon_cols2.add(i);
-        for (int i = cols2.length-1; i >= 0; i--) uncommon_cols2.remove(cols2[i]);
+        for (int i = cols2.length-1; i >= 0; i--) uncommon_cols2.remove(cols2[i]); //retain only attribute index which are not common in both table
         
         String [] out_schema = new String[attribute.length + uncommon_cols2.size()];
         Class [] out_schema_type = new Class[domain.length + uncommon_cols2.size()];
         
-        for (int m=0; m < attribute.length; m++) {
+        for (int m=0; m < attribute.length; m++) { //form output schema(attribute) from first table
         	out_schema[m] = attribute[m];
         	out_schema_type[m] = domain[m];
         }
-        for (int l=0; l < uncommon_cols2.size(); l++) {
+        for (int l=0; l < uncommon_cols2.size(); l++) { //form output schema(attribute list) from second table only for the columns which are not common
         	out_schema[l + attribute.length] = table2.attribute[uncommon_cols2.get(l)];
-        	out.println(uncommon_cols2.get(l));
+        	// out.println(uncommon_cols2.get(l));
         	out_schema_type[l + attribute.length] = table2.domain[uncommon_cols2.get(l)];
         }
         
@@ -388,9 +388,9 @@ public class Table
                 Comparable[] row2 = table2.tuples.get(t2);
                 boolean valMatch = true;
                 for (int c = 0; c < joinattr.size(); c++) {
-                    Comparable val1 = row1[cols1[c]];
+                    Comparable val1 = row1[cols1[c]];        //pick the tuple value at index for the attribute which is common, i.e. the join attribute
                     Comparable val2 = row2[cols2[c]];
-                    if (!val1.equals(val2)) {
+                    if (!val1.equals(val2)) { //
                     	valMatch = false;
                         break;
                     }
