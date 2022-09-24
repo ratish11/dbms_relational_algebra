@@ -1,4 +1,4 @@
-package com.dbprj.prj2;
+package com.dbms.prj2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

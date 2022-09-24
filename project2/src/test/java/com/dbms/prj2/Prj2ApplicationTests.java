@@ -1,4 +1,4 @@
-package com.dbprj.prj2;
+package com.dbms.prj2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
