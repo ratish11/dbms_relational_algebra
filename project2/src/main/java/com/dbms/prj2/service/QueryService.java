@@ -1,6 +1,6 @@
 package com.dbms.prj2.service;
 
-import com.dbms.prj2.entity.DoSEntity;
+import com.dbms.prj2.entity.DoSEntity1;
 import com.dbms.prj2.entity.EmpEntity;
 import com.dbms.prj2.entity.Query3Entity;
 import com.dbms.prj2.entity.SalaryEntity;
@@ -35,7 +35,7 @@ public class QueryService {
 
     @Autowired
     private DoSRepository doSRepository;
-    public List<DoSEntity> getQuery5(String emp1, String emp2) {
+    public List<DoSEntity1> getQuery5(Integer emp1, Integer emp2) {
         return doSRepository.getQuery5(emp1, emp2);
     }
 }

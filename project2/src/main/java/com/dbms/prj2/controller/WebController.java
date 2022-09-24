@@ -1,6 +1,6 @@
 package com.dbms.prj2.controller;
 
-import com.dbms.prj2.entity.DoSEntity;
+import com.dbms.prj2.entity.DoSEntity1;
 import com.dbms.prj2.entity.EmpEntity;
 import com.dbms.prj2.entity.Query3Entity;
 import com.dbms.prj2.entity.SalaryEntity;
@@ -38,7 +38,7 @@ public class WebController {
     }
 
     @PostMapping("/query5/{emp1}/{emp2}")
-    public List<DoSEntity> query5(@PathVariable String emp1, @PathVariable String emp2){
+    public List<DoSEntity1> query5(@PathVariable Integer emp1, @PathVariable Integer emp2){
         return queryService.getQuery5(emp1,emp2);
     }
 
