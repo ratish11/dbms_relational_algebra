@@ -1,18 +1,19 @@
 package com.dbms.prj2.controller;
 
+import com.dbms.prj2.entity.DoSEntity;
 import com.dbms.prj2.entity.EmpEntity;
 import com.dbms.prj2.entity.Query3Entity;
 import com.dbms.prj2.entity.SalaryEntity;
 import com.dbms.prj2.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@RestController
+@RequestMapping("/requestData")
 public class WebController {
 
     @Autowired
@@ -35,6 +36,12 @@ public class WebController {
     public List<EmpEntity> getQuery4(){
         return queryService.getQuery4();
     }
+
+    @PostMapping("/query5/{emp1}/{emp2}")
+    public List<DoSEntity> query5(@PathVariable String emp1, @PathVariable String emp2){
+        return queryService.getQuery5(emp1,emp2);
+    }
+
     @GetMapping("/")
     public String home(){
         return "index";
