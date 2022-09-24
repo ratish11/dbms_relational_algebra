@@ -1,13 +1,7 @@
 package com.dbms.prj2.service;
 
-import com.dbms.prj2.entity.DoSEntity1;
-import com.dbms.prj2.entity.EmpEntity;
-import com.dbms.prj2.entity.Query3Entity;
-import com.dbms.prj2.entity.SalaryEntity;
-import com.dbms.prj2.repository.DoSRepository;
-import com.dbms.prj2.repository.EmpRepository;
-import com.dbms.prj2.repository.Query3Repository;
-import com.dbms.prj2.repository.SalaryRepository;
+import com.dbms.prj2.entity.*;
+import com.dbms.prj2.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +29,13 @@ public class QueryService {
 
     @Autowired
     private DoSRepository doSRepository;
-    public List<DoSEntity1> getQuery5(Integer emp1, Integer emp2) {
+    public List<DoSEntity1> getQuery5(String emp1, String emp2) {
         return doSRepository.getQuery5(emp1, emp2);
+    }
+
+    @Autowired
+    private DoS2Repository doS2Repository;
+    public  List<DoS2Entity> getQuery6(String emp1, String emp2) {
+        return doS2Repository.getQuery6(emp1, emp2);
     }
 }

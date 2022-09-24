@@ -1,11 +1,10 @@
 package com.dbms.prj2.controller;
+import java.io.*;
 
-import com.dbms.prj2.entity.DoSEntity1;
-import com.dbms.prj2.entity.EmpEntity;
-import com.dbms.prj2.entity.Query3Entity;
-import com.dbms.prj2.entity.SalaryEntity;
+import com.dbms.prj2.entity.*;
 import com.dbms.prj2.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,8 +37,13 @@ public class WebController {
     }
 
     @PostMapping("/query5/{emp1}/{emp2}")
-    public List<DoSEntity1> query5(@PathVariable Integer emp1, @PathVariable Integer emp2){
+    public List<DoSEntity1> query5(@PathVariable String emp1, @PathVariable String emp2){
         return queryService.getQuery5(emp1,emp2);
+    }
+
+    @PostMapping("/query6/{emp1}/{emp2}")
+    public  List<DoS2Entity> query6(@PathVariable String emp1, @PathVariable String emp2) {
+        return  queryService.getQuery6(emp1, emp2);
     }
 
     @GetMapping("/")
