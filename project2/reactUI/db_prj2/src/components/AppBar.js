@@ -29,7 +29,7 @@ export default function Appbar() {
           {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                 <MenuIcon /> 
           </IconButton> */}
-          <Typography variant="h7" className={classes.title}>
+          <Typography variant="h6" className={classes.title}>
             DataBase Management Project
           </Typography>
           {/* <Button color="inherit">Login</Button> */}
