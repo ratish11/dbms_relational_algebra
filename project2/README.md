@@ -5,21 +5,18 @@ This project implements the setting up of an Employee database and populating th
 ## Software Requirements:
 - **Java 11 JDK**
 - **unzip**
-- **make**
 - **MySQL Server**
-- **JDBC**
+- **JDBC J Connect**
 ## How to execute:
 - first checkout the project zip file on your local system.
 - unzip the project zip.
 - go to the root folder of the project.
-- run the following commands: `make`
+
 
 ## How to compile and run:
 - go to the root folder of the project.
 - execute following command: 
-`javac -g MovieDB.java`
-- execute following command: 
-`java MovieDB`
+
 
 
 
