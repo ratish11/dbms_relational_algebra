@@ -525,7 +525,7 @@ public class Table
      *
      * @param name  the name of the table to load
      */
-    public static Table load (String name)
+    public Table load (String name)
     {
         Table tab = null;
         try {

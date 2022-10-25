@@ -74,17 +74,13 @@ public class TestTupleGenerator
             if(i == 3){ for(var j = 0; j < resultTest[i].length; j++) Teaching.insert(resultTest [i][j]); Teaching.save();}
             if(i == 4){ for(var j = 0; j < resultTest[i].length; j++) Transcript.insert(resultTest [i][j]); Transcript.save();}
         }
-//        for (var i = 0; i < resultTest.length; i++) {
-//            out.println (tables [i]);
-//            for (var j = 0; j < resultTest [i].length; j++) {
-//                for (var k = 0; k < resultTest [i][j].length; k++) {
-//                    out.print (resultTest [i][j][k] + ",");
-//                } // for
-//                out.println ();
-//            } // for
-//            out.println ();
-//        } // for
+        Student.print();
+        Professor.print();
+        Course.print();
+        Teaching.print();
+        Transcript.print();
+        Table t_select = Student.join("id", "studId", Transcript);
+        t_select.print ();
     } // main
-
 } // TestTupleGenerator
 

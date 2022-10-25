@@ -28,7 +28,7 @@ public class LinHashMap <K, V>
 
     /** The threshold/upper bound on the load factor
      */
-    private static final double THRESHOLD = 0.5;
+    private static final double THRESHOLD = 1.2;
 
     /** The class for type K.
      */
@@ -169,6 +169,7 @@ public class LinHashMap <K, V>
     public V put (K key, V value)
     {
         var i    = h (key);                                                  // hash to i-th bucket chain
+        var splitexists = false;
         var bh   = hTable.get (i);                                           // start with home bucket
         var oldV = find (key, bh, false);                                    // find old value associated with key
         out.println ("LinearHashMap.put: key = " + key + ", h() = " + i + ", value = " + value);
@@ -179,16 +180,36 @@ public class LinHashMap <K, V>
 //        hTable.get(1).print();
 //        if(hTable.get(1).next != null) hTable.get(1).next.print();
         if (lf > THRESHOLD) split ();                                        // split beyond THRESHOLD
+        try {
+            out.println("inside try");
+            var nb   = hTable.get (i+mod1);
+            out.println("split bucket exists, putting h2 keys in split bucket");
+        }catch (IndexOutOfBoundsException e){
+            splitexists = false;
+            out.println("Split bucket does not exists for current bucket, putting all keys in current bucket");
+        }
+        if(splitexists && h(key) != h2(key)){
+            var nb   = hTable.get (i+mod1);
+            var b = nb;
+            while (true)  {
+                if (b.nKeys < SLOTS) { b.add (key, value); return oldV; }
+                if (b.next != null) b = b.next; else break;
+            } // while
+            var bn = new Bucket ();
+            bn.add (key, value);
+            b.next = bn;
 
-        var b = bh;
-        while (true)  {
-            if (b.nKeys < SLOTS) { b.add (key, value); return oldV; }
-            if (b.next != null) b = b.next; else break;
-        } // while
-
-        var bn = new Bucket ();
-        bn.add (key, value);
-        b.next = bn;                                                         // add new bucket at end of chain
+        }
+        else{
+            var b = bh;
+            while (true)  {
+                if (b.nKeys < SLOTS) { b.add (key, value); return oldV; }
+                if (b.next != null) b = b.next; else break;
+            } // while
+            var bn = new Bucket ();
+            bn.add (key, value);
+            b.next = bn;                                                         // add new bucket at end of chain
+        }
         return oldV;
     } // put
 
@@ -338,8 +359,8 @@ public class LinHashMap <K, V>
      */
     public static void main (String [] args)
     {
-        var totalKeys = 40;
-        var RANDOMLY  = false;
+        var totalKeys = 500;
+        var RANDOMLY  = true;
 
         LinHashMap <Integer, Integer> ht = new LinHashMap <> (Integer.class, Integer.class);
         if (args.length == 1) totalKeys = Integer.valueOf (args [0]);
@@ -352,9 +373,9 @@ public class LinHashMap <K, V>
         } // if
 
         ht.print ();
-        for (var i = 0; i <= totalKeys; i++) {
-            out.println ("key = " + i + " value = " + ht.get (i));
-        } // for
+//        for (var i = 0; i <= totalKeys; i++) {
+//            out.println ("key = " + i + " value = " + ht.get (i));
+//        } // for
         out.println ("-------------------------------------------");
         out.println ("Average number of buckets accessed = " + ht.count / (double) totalKeys);
         ht.entrySet(); //print the entire set
