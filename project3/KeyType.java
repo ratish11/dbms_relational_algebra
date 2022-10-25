@@ -3,7 +3,7 @@
  * @file  KeyType.java
  *
  * @author   John Miller
- * 
+ *
  * @see http://leepoint.net/notes-java/data/expressions/22compareobjects.html
  */
 
@@ -16,7 +16,7 @@ import static java.lang.System.out;
  * A key is a minimal set of attributes that can be used to uniquely identify a tuple.
  */
 public class KeyType
-       implements Comparable <KeyType>, Serializable
+        implements Comparable <KeyType>, Serializable
 {
     /** Array holding the attribute values for a particular key
      */
@@ -28,7 +28,7 @@ public class KeyType
      */
     public KeyType (Comparable [] _key)
     {
-         key = _key;
+        key = _key;
     } // constructor
 
     /*************************************************************************************
@@ -37,9 +37,9 @@ public class KeyType
      */
     public KeyType (Comparable key0, Comparable ... keys)
     {
-         key = new Comparable [keys.length + 1];
-         key [0] = key0;
-         for (var i = 1; i < key.length; i++) key [i] = keys [i-1];
+        key = new Comparable [keys.length + 1];
+        key [0] = key0;
+        for (var i = 1; i < key.length; i++) key [i] = keys [i-1];
     } // constructor
 
     /*************************************************************************************
