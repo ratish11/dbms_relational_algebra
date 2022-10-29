@@ -23,6 +23,8 @@ public class TupleGeneratorImpl
     /** Initializations 
      */
     private HashMap <String, Comparable [][]> result = new HashMap <> ();
+//    public HashMap < Integer, Comparable> studentHashTable = new HashMap<>();
+    
 
     private HashMap <Integer, String> tableIndex = new HashMap <> ();
 
@@ -98,7 +100,7 @@ public class TupleGeneratorImpl
             fks       = tablefks.get (tableName);
             var subResult = new Comparable [tuples [i]][attribute.length];
 
-            // out.println (tableName);
+//             out.println (tableName);
             for (var n = 0; n < pks.length; n++) pKeys.add (pks [n]);
 
             //----------------------------------------------------
@@ -246,6 +248,8 @@ public class TupleGeneratorImpl
 
             pKeys.clear ();
             fkIndex.clear ();
+//            out.println(tableName);
+//            out.println(subResult);
             result.put (tableName, subResult);
         } // for
 

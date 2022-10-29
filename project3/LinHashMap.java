@@ -153,9 +153,20 @@ public class LinHashMap <K, V>
      * @return  the value associated with the key
      */
     @SuppressWarnings("unchecked")
-    public V get (Object key)
+    public V getold (Object key)
     {
         var i = h (key);
+        return find ((K) key, hTable.get (i), true);
+    } // get
+    @SuppressWarnings("unchecked")
+    public V get (Object key)
+    {
+        var i    = h (key);
+        // Modification to adhere to algorithm in video lecture
+        if(i < isplit) {
+            i = h2(key);
+        }                                                                    // hash to i-th bucket chain
+        // end modification
         return find ((K) key, hTable.get (i), true);
     } // get
 
@@ -168,11 +179,48 @@ public class LinHashMap <K, V>
      */
     public V put (K key, V value)
     {
+        var i    = h (key);
+        // Modification to adhere to algorithm in video lecture
+        if(i < isplit) {
+            i = h2(key);
+        }                                                                    // hash to i-th bucket chain
+        // end modification
+        var bh   = hTable.get (i);                                           // start with home bucket
+        var oldV = find (key, bh, false);                                    // find old value associated with key
+        out.println ("LinearHashMap.put: key = " + key + ", h() = " + i + ", value = " + value);
+
+        keyCount++;                                                          // increment the key count
+        var lf = loadFactor ();                                              // compute the load factor
+        if (DEBUG) out.println ("put: load factor = " + lf);
+        // MODIFIED to ensure that the key and value are placed in the correct bucket after split
+        if (lf > THRESHOLD) {
+            split ();
+            i = h(key);
+            if(i < isplit) {
+                i = h2(key);
+            } // recalculates i and bh
+            bh   = hTable.get (i); // needed as the split might remove the home bucket originally assigned
+        };                                        // split beyond THRESHOLD
+        // END MODIFICATION
+
+        var b = bh;
+        while (true)  {
+            if (b.nKeys < SLOTS) { b.add (key, value); return oldV; }
+            if (b.next != null) b = b.next; else break;
+        } // while
+
+        var bn = new Bucket ();
+        bn.add (key, value);
+        b.next = bn;                                                         // add new bucket at end of chain
+        return oldV;
+    } // put
+    public V putmine (K key, V value)
+    {
         var i    = h (key);                                                  // hash to i-th bucket chain
         var splitexists = false;
         var bh   = hTable.get (i);                                           // start with home bucket
         var oldV = find (key, bh, false);                                    // find old value associated with key
-        out.println ("LinearHashMap.put: key = " + key + ", h() = " + i + ", value = " + value);
+//        out.println ("LinearHashMap.put: key = " + key + ", h() = " + i + ", value = " + value);
 
         keyCount++;                                                          // increment the key count
         var lf = loadFactor ();                                              // compute the load factor
@@ -181,12 +229,12 @@ public class LinHashMap <K, V>
 //        if(hTable.get(1).next != null) hTable.get(1).next.print();
         if (lf > THRESHOLD) split ();                                        // split beyond THRESHOLD
         try {
-            out.println("inside try");
+//            out.println("inside try");
             var nb   = hTable.get (i+mod1);
-            out.println("split bucket exists, putting h2 keys in split bucket");
+//            out.println("split bucket exists, putting h2 keys in split bucket");
         }catch (IndexOutOfBoundsException e){
             splitexists = false;
-            out.println("Split bucket does not exists for current bucket, putting all keys in current bucket");
+//            out.println("Split bucket does not exists for current bucket, putting all keys in current bucket");
         }
         if(splitexists && h(key) != h2(key)){
             var nb   = hTable.get (i+mod1);
@@ -251,8 +299,8 @@ public class LinHashMap <K, V>
      */
     private void split ()
     {
-        out.println("print before");
-        this.print();
+//        out.println("print before");
+//        this.print();
         out.println ("split: bucket chain " + isplit);
 
         //  T O   B E   I M P L E M E N T E D
@@ -271,8 +319,8 @@ public class LinHashMap <K, V>
         currentBucket = new Bucket();
         for(var i = 0; allkeys.size()> 0 && i < allkeys.size(); i++){
             if(h2(allkeys.get(i)) != isplit){
-                out.println("moving to new bucket");
-                out.println("key = "+allkeys.get(i) + "key's hash = " + h2(allkeys.get(i)) + "isplit value = " + isplit);
+//                out.println("moving to new bucket");
+//                out.println("key = "+allkeys.get(i) + "key's hash = " + h2(allkeys.get(i)) + "isplit value = " + isplit);
                 if(newBucket.nKeys < SLOTS) {
                     newBucket.add((K) allkeys.get(i), (V) allvals.get(i));
                 }
@@ -283,8 +331,8 @@ public class LinHashMap <K, V>
                 }
             }
             else{
-                out.println("moving to current bucket");
-                out.println("key = "+allkeys.get(i) + "key's hash = " + h2(allkeys.get(i)) + "isplit value = " + isplit);
+//                out.println("moving to current bucket");
+//                out.println("key = "+allkeys.get(i) + "key's hash = " + h2(allkeys.get(i)) + "isplit value = " + isplit);
                 if(currentBucket.nKeys < SLOTS) {
                     currentBucket.add((K) allkeys.get(i), (V) allvals.get(i));
                 }
@@ -296,15 +344,15 @@ public class LinHashMap <K, V>
             }
         }
         hTable.set(isplit, currentBucket);
-        currentBucket.print();
+//        currentBucket.print();
         if((isplit + 1) == mod1){
             isplit = 0;
             mod1 = 2*mod1;
             mod2 = 2*mod2;
         }
         else isplit++;
-        this.print();
-        out.println("print after");
+//        this.print();
+//        out.println("print after");
     } // split
 
     /********************************************************************************
@@ -378,7 +426,7 @@ public class LinHashMap <K, V>
 //        } // for
         out.println ("-------------------------------------------");
         out.println ("Average number of buckets accessed = " + ht.count / (double) totalKeys);
-        ht.entrySet(); //print the entire set
+//        ht.entrySet(); //print the entire set
     } // main
 
 } // LinHashMap class
