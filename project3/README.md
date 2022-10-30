@@ -28,6 +28,7 @@ Run the following bash commands –
 •	java PerformanceEval
 
 ### Output:
+Check the output of JOIN and SELECT performance with different type of Indexing Techniques:
 <img src="JOIN.png" width = "80%" /><br>
 <img src="SELECT.png" width = "80%" /><br>
 
