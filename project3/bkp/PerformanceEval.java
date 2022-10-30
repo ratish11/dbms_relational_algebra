@@ -1,10 +1,15 @@
-import javax.swing.*;
+//import javax.swing.*;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-//import java.util.Map;
 import java.util.Random;
+
 import static java.lang.System.out;
-import java.io.*;
 //import java.time.Instant;
 //import java.time.Duration;
 
@@ -23,7 +28,7 @@ public class PerformanceEval {
             out.write(mType);
             out.newLine();
             for( var i = 0; i < lst.size(); i++){
-                List item = (List) lst.get(i);
+                List item = Collections.singletonList(lst.get(i));
                 for(var j = 0; j < item.size(); j++){
                     out.write(item.get(j).toString() + " ");
                 }
@@ -118,7 +123,7 @@ public class PerformanceEval {
 //        f.setVisible(true);
 
 
-//        appendStrToFile(String.valueOf(Student.mTypePublic), filename, print_list);
+        appendStrToFile(String.valueOf(Student.mTypePublic), filename, print_list);
 
     }
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="da2ba36b-f101-49ea-b1a5-8d39b346e5d7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArrayUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarChart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KeyType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinHashMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/P3_Rubric.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerformanceEval.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_31.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_31_bkp.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Table of Contents.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Table.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestTupleGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TupleGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TupleGeneratorImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/non-index.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/ArrayUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/KeyType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/LinHashMap$Bucket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/LinHashMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/P3_Rubric.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/Project_31.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/Table of Contents.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/Table$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/Table$MapType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/Table.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/TestTupleGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/TupleGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/TupleGeneratorImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project3/project3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/performance.txt" beforeDir="false" afterPath="$PROJECT_DIR$/performance.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project3.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Gryxjl7hiwQEY8QM73Qxlu1RnY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/rcj50704/Downloads/jfreechart-1.0.19/jfreechart-1.0.19/lib/jfreechart-1.0.19.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="da2ba36b-f101-49ea-b1a5-8d39b346e5d7" name="Changes" comment="" />
+      <created>1667161247713</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667161247713</updated>
+    </task>
+    <servers />
+  </component>
+</project>
