@@ -175,12 +175,10 @@ public class PerformanceEval extends Application {
                 var tup_data = collate_db.generate (tuple_cnt[item]);
                 for(var i = 0; i < tup_data.length; i++) {
                     if (i == 0) { for (var j = 0; j < tup_data[i].length; j++) Student.insert(tup_data[i][j]);}
-            if(i == 1){ for(var j = 0; j < tup_data[i].length; j++) Professor.insert(tup_data [i][j]); }
-            if(i == 2){ for(var j = 0; j < tup_data[i].length; j++) Course.insert(tup_data [i][j]); }
-            if(i == 3){ for(var j = 0; j < tup_data[i].length; j++) Teaching.insert(tup_data [i][j]); }
-                    if (i == 4) {
-                        for (var j = 0; j < tup_data[i].length; j++) Transcript.insert(tup_data[i][j]);
-                    }
+                    if(i == 1){ for(var j = 0; j < tup_data[i].length; j++) Professor.insert(tup_data [i][j]); }
+                    if(i == 2){ for(var j = 0; j < tup_data[i].length; j++) Course.insert(tup_data [i][j]); }
+                    if(i == 3){ for(var j = 0; j < tup_data[i].length; j++) Teaching.insert(tup_data [i][j]); }
+                    if (i == 4) { for (var j = 0; j < tup_data[i].length; j++) Transcript.insert(tup_data[i][j]); }
                 }
                 var select_key = tup_data [0][tup_data[0].length - 1 - random.nextInt(tuple_cnt[item][0])][0];
 //            noOfTuples.add(tuple_cnt[item][0]);
