@@ -5,45 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da2ba36b-f101-49ea-b1a5-8d39b346e5d7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArrayUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarChart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KeyType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinHashMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/P3_Rubric.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PerformanceEval.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project_31.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project_31_bkp.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table of Contents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Table.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestTupleGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TupleGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TupleGeneratorImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/non-index.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/ArrayUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/KeyType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/LinHashMap$Bucket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/LinHashMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/P3_Rubric.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/Project_31.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/Table of Contents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/Table$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/Table$MapType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/Table.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/TestTupleGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/TupleGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/TupleGeneratorImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project3/project3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/performance.txt" beforeDir="false" afterPath="$PROJECT_DIR$/performance.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dbms/project3_jfree/PerformanceEval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dbms/project3_jfree/PerformanceEval.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
